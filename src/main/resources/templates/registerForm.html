@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Хранилище</title>
+    <link rel="stylesheet" href="/public-resources/basicStylesheet.css">
+    <link rel="shortcut icon" type="image/png" href="/public-resources/favicon.ico">
+    <script src="https://kit.fontawesome.com/acba7e06f3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                <img alt="logo" src="">
+            </a>
+        </div>
+        <ul class="navbar-nav">
+            <li>
+                <a href="/about">
+                    <i class="fa-solid fa-user-secret"></i>
+                    <span>О создателе</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="/register">
+                    <i class="fa-solid fa-id-card"></i>
+                    <span>Регистрация</span>
+                </a>
+            </li>
+            <li>
+                <a href="/login">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <span>Вход</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <form method="POST" name="Registration" class="registration" action="/register">
+        <h1>Регистрационная форма</h1>
+
+        <label>
+            <span>Имя</span><br>
+            <input class="our_input" id="name" type="text" minlength="3"
+                   onblur="hide_all()" onfocus="show_name()" oninput="test_name()" required name="name">
+            <ul class="input-requirements" id="for_name">
+                <li>Как минимум 3 символа</li>
+                <li>Только буквы</li>
+            </ul>
+        </label><br>
+
+        <label>
+            <span>Фамилия</span><br>
+            <input class="our_input" id="surname" type="text" minlength="3"
+                   onblur="hide_all()" onfocus="show_surname()" oninput="test_surname()" required name="surname">
+            <ul class="input-requirements" id="for_surname">
+                <li>Как минимум 3 символа</li>
+                <li>Только буквы</li>
+            </ul>
+        </label><br>
+
+        <label>
+            <span>Почта, рекомендуется использовать лицейскую</span><br>
+            <input class="our_input" id="email" type="text" oninput="test_email()" required name="email">
+        </label><br>
+
+        <label>
+            <span>Логин</span><br>
+            <input class="our_input" id="login" type="text" minlength="3"
+                   onblur="hide_all()" onfocus="show_login()" oninput="test_login()" required name="login">
+            <ul class="input-requirements" id="for_login">
+                <li>Как минимум 3 символа</li>
+                <li>Только буквы и цифры (без спец. символов)</li>
+            </ul>
+        </label><br>
+
+        <label>
+            <span>Пароль</span><br>
+            <input class="our_input" id="password" type="password" minlength="8" maxlength="64"
+                   onblur="hide_all()" onfocus="show_password()" oninput="test_password()" required name="password">
+            <ul class="input-requirements" id="for_password">
+                <li>От 8 до 64 символов</li>
+                <li>Как минимум 1 строчная буква</li>
+                <li>Как минимум 1 заглавная буква</li>
+                <li>Как минимум 1 цифра</li>
+                <li>Как минимум 1 спец. символ ($, @, ! и т.п.)</li>
+            </ul>
+        </label><br>
+
+        <label>
+            <span>Повторите пароль</span><br>
+            <input class="our_input" id="password_again" type="password" oninput="test_password_repeat()" required>
+        </label><br>
+
+        <input type="submit" id="submit">
+    </form>
+</div>
+
+</body>
+<footer>
+    <p>Максим Сысоев im.smd.dev@gmail.com</p>
+</footer>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    const used_logins = /*[[${logins_taken}]]*/ [];
+    const used_emails = /*[[${emails_taken}]]*/ [];
+    /*]]>*/
+</script>
+<script src="/public-resources/baseForForms.js"></script>
+<script src="/public-resources/registerForm.js"></script>
+</html>

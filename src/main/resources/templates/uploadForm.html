@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Хранилище</title>
+    <link rel="stylesheet" href="/public-resources/basicStylesheet.css">
+    <link rel="shortcut icon" type="image/png" href="/public-resources/favicon.ico">
+    <script src="https://kit.fontawesome.com/acba7e06f3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <h3>Загрузить необходимо zip-файл со всем сайтом. Главная страница должна называться index.html</h3>
+    <form method="POST" enctype="multipart/form-data" action="/upload">
+        <table>
+            <tr>
+                <td>File to upload:</td>
+                <td><input type="file" name="file"/></td>
+            </tr>
+        </table>
+        <div class="hor-center"><input type="submit" value="Upload"/></div>
+    </form>
+</div>
+
+</body>
+</html>

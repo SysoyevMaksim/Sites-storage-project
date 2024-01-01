@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Хранилище</title>
+    <link rel="stylesheet" href="/public-resources/basicStylesheet.css">
+    <link rel="shortcut icon" type="image/png" href="/public-resources/favicon.ico">
+    <script src="https://kit.fontawesome.com/acba7e06f3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                <img alt="logo" src="">
+            </a>
+        </div>
+        <ul class="navbar-nav">
+            <li>
+                <a href="/about">
+                    <i class="fa-solid fa-user-secret"></i>
+                    <span>О создателе</span>
+                </a>
+            </li>
+            <li th:if="${!authed}">
+                <a href="/register">
+                    <i class="fa-solid fa-id-card"></i>
+                    <span>Регистрация</span>
+                </a>
+            </li>
+            <li th:if="${!authed}">
+                <a href="/login">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <span>Вход</span>
+                </a>
+            </li>
+            <li class="active" th:if="${authed}">
+                <a href="/profile">
+                    <i class="fa-solid fa-user"></i>
+                    <span th:text="${user}"></span>
+                </a>
+            </li>
+            <li th:if="${authed}">
+                <a href="/logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Выход</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<table class="two_columns">
+    <tr>
+        <th>
+            <div class="container">
+                <h1>Добро пожаловать, <span th:text="${user}"></span></h1>
+                <h2>Это твой профиль</h2>
+                <h3>Ты хочешь:</h3>
+                <ul class="variants">
+                    <li>
+                        <a href="/change_username"><button>Сменить логин</button></a>
+                    </li>
+                    <li>
+                        <a href="/change_password"><button>Сменить пароль</button></a>
+                    </li>
+                    <li>
+                        <a href="/upload"><button>Загрузить сайт</button></a>
+                    </li>
+                    <li>
+                        <a th:href="@{'site/' + ${user}}"><button>Посмотреть свой сайт</button></a>
+                    </li>
+                </ul>
+            </div>
+        </th>
+        <th>
+            <div class="h1_space"></div>
+            <div class="container">
+                <img id="profile_meme" alt="прикольчик" src=""/>
+            </div>
+        </th>
+    </tr>
+</table>
+</body>
+<footer>
+    <p>Максим Сысоев im.smd.dev@gmail.com</p>
+</footer>
+</html>

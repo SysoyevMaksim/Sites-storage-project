@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Хранилище</title>
+    <link rel="stylesheet" href="/public-resources/basicStylesheet.css">
+    <link rel="shortcut icon" type="image/png" href="/public-resources/favicon.ico">
+    <script src="https://kit.fontawesome.com/acba7e06f3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                <img alt="logo" src="">
+            </a>
+        </div>
+        <ul class="navbar-nav">
+            <li>
+                <a href="/about">
+                    <i class="fa-solid fa-user-secret"></i>
+                    <span>О создателе</span>
+                </a>
+            </li>
+            <li th:if="${authed}">
+                <a href="/profile">
+                    <i class="fa-solid fa-user"></i>
+                    <span th:text="${user}"></span>
+                </a>
+            </li>
+            <li th:if="${authed}">
+                <a href="/logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Выход</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container">
+    <h3 class="center">Ваш текущий логин: <span th:text="${user}"></span></h3>
+    <form name='f' th:action="@{/change_username}" class="login" method='POST'>
+        <label>
+            <span>Новый логин</span><br>
+            <input class="our_input" id="login" type="text" minlength="3"
+                   onblur="hide_all()" onfocus="show_login()" oninput="test_login()" required name="login">
+            <ul class="input-requirements" id="for_login">
+                <li>Как минимум 3 символа</li>
+                <li>Только буквы и цифры (без спец. символов)</li>
+            </ul>
+        </label><br>
+        <input id="submit" type="submit" value="Сменить"/>
+    </form>
+</div>
+</body>
+<footer>
+    <p>Максим Сысоев im.smd.dev@gmail.com</p>
+</footer>
+<script th:inline="javascript">
+    /*<![CDATA[*/
+    const used_logins = /*[[${logins_taken}]]*/ [];
+    /*]]>*/
+</script>
+<script src="/public-resources/baseForForms.js"></script>
+<script src="/public-resources/usernameChangeForm.js"></script>
+</html>

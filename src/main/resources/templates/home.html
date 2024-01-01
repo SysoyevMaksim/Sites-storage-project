@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Хранилище</title>
+    <link rel="stylesheet" href="/public-resources/basicStylesheet.css">
+    <link rel="shortcut icon" type="image/png" href="/public-resources/favicon.ico">
+    <script src="https://kit.fontawesome.com/acba7e06f3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                <img alt="logo" src="">
+            </a>
+        </div>
+        <ul class="navbar-nav">
+            <li>
+                <a href="/about">
+                    <i class="fa-solid fa-user-secret"></i>
+                    <span>О создателе</span>
+                </a>
+            </li>
+            <li th:if="${!authed}">
+                <a href="/register">
+                    <i class="fa-solid fa-id-card"></i>
+                    <span>Регистрация</span>
+                </a>
+            </li>
+            <li th:if="${!authed}">
+                <a href="/login">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <span>Вход</span>
+                </a>
+            </li>
+            <!--            <li>-->
+            <!--                <a href="/upload" title="Upload">-->
+            <!--                    <i class="fa-solid fa-upload"></i>-->
+            <!--                    <span>Загрузка сайта</span>-->
+            <!--                </a>-->
+            <!--            </li>-->
+            <li th:if="${authed}">
+                <a href="/profile">
+                    <i class="fa-solid fa-user"></i>
+                    <span th:text="${user}"></span>
+                </a>
+            </li>
+            <li th:if="${authed}">
+                <a href="/logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Выход</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <h1>Добро пожаловать в хранилище!</h1>
+    <h3>Проект создан для хранения простых сайтов без backend-а (статичных).</h3>
+    <p>Всех лицеистов рад встретить на данном сайте! Если же вы не лицеист, но каким-то образом набрели на этот сайт, то
+        я всё ещё вам очень рад!</p>
+    <p>Буду рад отзывам и предложениям!</p>
+</div>
+</body>
+<footer>
+    <p>Максим Сысоев im.smd.dev@gmail.com</p>
+</footer>
+</html>

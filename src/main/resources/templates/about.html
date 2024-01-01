@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Хранилище</title>
+    <link rel="stylesheet" href="/public-resources/basicStylesheet.css">
+    <link rel="shortcut icon" type="image/png" href="/public-resources/favicon.ico">
+    <script src="https://kit.fontawesome.com/acba7e06f3.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">
+                <img alt="logo" src="">
+            </a>
+        </div>
+        <ul class="navbar-nav">
+            <li class="active">
+                <a href="/about">
+                    <i class="fa-solid fa-user-secret"></i>
+                    <span>О создателе</span>
+                </a>
+            </li>
+            <li th:if="${!authed}">
+                <a href="/register">
+                    <i class="fa-solid fa-id-card"></i>
+                    <span>Регистрация</span>
+                </a>
+            </li>
+            <li th:if="${!authed}">
+                <a href="/login">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <span>Вход</span>
+                </a>
+            </li>
+            <li th:if="${authed}">
+                <a href="/profile">
+                    <i class="fa-solid fa-user"></i>
+                    <span th:text="${user}"></span>
+                </a>
+            </li>
+            <li th:if="${authed}">
+                <a href="/logout">
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                    <span>Выход</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <h1>Кто же тот безумец, который решил это утворить?</h1>
+    <p>Вот он, спит.</p>
+    <img id="SMD" alt="Спящая красавица" src=""/>
+    <p>На момент создания проекта он был в 11ИМ классе Лицея БГУ. Проект создавался т.к. он знал, что всем ИМам
+        предстоит создать сайт, и он не хотел быть как все. Ещё он знал Java. Поэтому он решил создать этот проект.</p>
+</div>
+</body>
+<footer>
+    <p>Максим Сысоев im.smd.dev@gmail.com</p>
+</footer>
+</html>
